@@ -51,58 +51,63 @@
 <body>
 
   <section class="panel right">
-  <h2 style="margin: 10px 0;">📚 ตอนล่าสุด</h2>
-  <div style="
-    display: flex;
-    overflow-x: auto;
-    gap: 16px;
-    padding: 10px;
-    scroll-behavior: smooth;
-  ">
-    <div style="
-      flex: 0 0 auto;
-      width: 140px;
-      border-radius: 12px;
-      background: linear-gradient(180deg, rgba(90,0,120,0.5), rgba(40,0,60,0.5));
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    " onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.5)';"
-      onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.3)'">
-      <div style="
-        height: 100px;
-        border-radius: 8px;
-        background: linear-gradient(90deg,#130b2b,#2b0b39);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-weight: 700;
-      ">COVER</div>
-      <div style="margin-top:8px; font-weight:700; color:#fff;">ตอนที่ 1</div>
-      <div class="small" style="color:#bbb;">คำอธิบายสั้น</div>
-    </div>
+  <style>
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow: hidden;
+  margin: 20px 0;
+}
 
-    <div style="
-      flex: 0 0 auto;
-      width: 140px;
-      border-radius: 12px;
-      background: linear-gradient(180deg, rgba(0,60,120,0.5), rgba(0,30,60,0.5));
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    " onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.5)';"
-      onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.3)'">
-      <div style="
-        height: 100px;
-        border-radius: 8px;
-        background: linear-gradient(90deg,#0b2b13,#0b392b);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-weight: 700;
-      ">COVER</div>
-      <div style="margin-top:8px; font-weight:700; color:#fff;">ตอนที่ 2</div>
-      <div class="small" style="color:#bbb;">คำอธิบายสั้น</div>
-    </div>
+.gallery-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.gallery-row img {
+  width: 180px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  transition: transform 0.3s;
+}
+
+.gallery-row img:hover {
+  transform: scale(1.05);
+}
+</style>
+
+<div class="gallery-container">
+  <!-- แถวที่ 1 -->
+  <div class="gallery-row">
+    <img src="https://placehold.co/180x250?text=1-1">
+    <img src="https://placehold.co/180x250?text=1-2">
+    <img src="https://placehold.co/180x250?text=1-3">
+    <img src="https://placehold.co/180x250?text=1-4">
+    <img src="https://placehold.co/180x250?text=1-5">
   </div>
-  </section>
+
+  <!-- แถวที่ 2 -->
+  <div class="gallery-row">
+    <img src="https://placehold.co/180x250?text=2-1">
+    <img src="https://placehold.co/180x250?text=2-2">
+    <img src="https://placehold.co/180x250?text=2-3">
+    <img src="https://placehold.co/180x250?text=2-4">
+    <img src="https://placehold.co/180x250?text=2-5">
+  </div>
+
+  <!-- แถวที่ 3 -->
+  <div class="gallery-row">
+    <img src="https://placehold.co/180x250?text=3-1">
+    <img src="https://placehold.co/180x250?text=3-2">
+    <img src="https://placehold.co/180x250?text=3-3">
+    <img src="https://placehold.co/180x250?text=3-4">
+    <img src="https://placehold.co/180x250?text=3-5">
+  </div>
+</div>
