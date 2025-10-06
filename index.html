@@ -74,6 +74,34 @@
     border-radius: 12px;
   }
 </style>
+  .manga-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  scroll-behavior: smooth;
+}
+.manga-card {
+  min-width: 120px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  padding: 8px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.manga-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+.manga-card p {
+  font-size: 14px;
+  color: white;
+  margin-top: 5px;
+}
+.manga-card:hover {
+  transform: scale(1.05);
+}
 </head>
 <body>
 
@@ -142,6 +170,33 @@ effectToggle.addEventListener("change", () => {
   });
 });
 </script>
-
+.manga-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  scroll-behavior: smooth;
+}
+.manga-card {
+  min-width: 120px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  padding: 8px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.manga-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+.manga-card p {
+  font-size: 14px;
+  color: white;
+  margin-top: 5px;
+}
+.manga-card:hover {
+  transform: scale(1.05);
+}
 </body>
 </html>
