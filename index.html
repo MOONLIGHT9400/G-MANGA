@@ -199,6 +199,91 @@ setInterval(() => {
 
         <div style="margin-top:18px;">
           <a class="btn" href="#contact">ติดต่อ / ตั้งค่า</a>
+          <!-- เมนูตั้งค่า (Popup) -->
+<div id="settingsMenu" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  z-index:9999;
+  align-items:center;
+  justify-content:center;
+">
+  <div style="
+    background:rgba(26,26,48,0.9);
+    border:1px solid rgba(138,43,226,0.3);
+    border-radius:14px;
+    padding:24px;
+    width:90%;
+    max-width:420px;
+    color:#fff;
+    box-shadow:0 0 30px rgba(138,43,226,0.25);
+  ">
+    <h2 style="margin-top:0; color:#b388ff;">⚙️ ตั้งค่าเว็บไซต์</h2>
+    <p style="color:#ccc;">คุณสามารถเปิด/ปิดเอฟเฟกต์ในเว็บได้ที่นี่</p>
+
+    <div style="margin-top:14px;">
+      <label>
+        <input type="checkbox" id="effectToggle" checked />
+        เปิดเอฟเฟกต์กระพริบ (.blink)
+      </label>
+    </div>
+
+    <div style="margin-top:22px; text-align:right;">
+      <button id="closeSettings" style="
+        background:var(--purple);
+        border:none;
+        color:#fff;
+        border-radius:8px;
+        padding:8px 16px;
+        cursor:pointer;
+      ">ปิด</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== เมนูตั้งค่า =====
+const settingsMenu = document.getElementById('settingsMenu');
+const settingsBtn = document.querySelector('a[href="#contact"]');
+const closeSettings = document.getElementById('closeSettings');
+const effectToggle = document.getElementById('effectToggle');
+
+settingsBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  settingsMenu.style.display = 'flex';
+});
+
+closeSettings.addEventListener('click', () => {
+  settingsMenu.style.display = 'none';
+});
+
+// ===== เปิด/ปิดเอฟเฟกต์ blink =====
+let blinkActive = true;
+effectToggle.addEventListener('change', () => {
+  blinkActive = effectToggle.checked;
+  document.querySelectorAll('.blink').forEach(el => {
+    el.style.textShadow = blinkActive ? '0 0 10px #b388ff' : 'none';
+    el.style.transition = 'all 0.3s ease';
+  });
+});
+
+// ===== เอฟเฟกต์กระพริบ (คงอยู่เหมือนเดิมแต่เช็กสถานะ toggle) =====
+setInterval(() => {
+  if (!blinkActive) return;
+  const blinks = document.querySelectorAll('.blink');
+  blinks.forEach(blink => {
+    if (blink.style.color === 'rgb(179, 136, 255)') {
+      blink.style.color = '#d6b3ff';
+      blink.style.textShadow = '0 0 10px #b388ff, 0 0 20px #b388ff';
+    } else {
+      blink.style.color = '#b388ff';
+      blink.style.textShadow = '0 0 6px #b388ff, 0 0 12px #b388ff';
+    }
+  });
+}, 800);
+</script>
           <script>
 // ทำให้ทุกองค์ประกอบที่มีคลาส .blink เปลี่ยนเฉดสีม่วงไปมาแบบเรืองแสง
 setInterval(() => {
