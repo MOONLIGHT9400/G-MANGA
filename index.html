@@ -127,7 +127,16 @@ setInterval(() => {
     }
   });
 }, 800);
-  </script>
+  <button onclick="toggleBlink()">เปิด/ปิด เอฟเฟกต์กระพริบ</button>
+
+<script>
+function toggleBlink() {
+  // เลือกทุกองค์ประกอบที่มีคลาส blink
+  document.querySelectorAll('.blink').forEach(el => {
+    el.classList.toggle('blink-active');
+  });
+}
+</script>
 <body>
   <div class="wrap">
     <section class="panel left">
