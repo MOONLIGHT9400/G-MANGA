@@ -1,5 +1,42 @@
-body {
-  margin: 0;
-  background: #0f1724;
-  color: #e6eef8;
+/* กล่องการ์ดแนวนอน */
+.scroll-cards {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  scroll-behavior: smooth;
+}
+
+/* ซ่อน scrollbar (เลือกได้ว่าจะเปิดหรือปิด) */
+.scroll-cards::-webkit-scrollbar {
+  display: none;
+}
+
+/* กล่องการ์ดแต่ละอัน */
+.card {
+  min-width: 120px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  padding: 8px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+/* รูปภาพ */
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* ชื่อเรื่อง */
+.card p {
+  font-size: 14px;
+  color: white;
+  margin-top: 5px;
+}
+
+/* เอฟเฟกต์เวลาเอาเมาส์ชี้ */
+.card:hover {
+  transform: scale(1.05);
 }
