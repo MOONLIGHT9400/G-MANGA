@@ -1,355 +1,147 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>snow-manga</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moonlight Web</title>
 <style>
-  :root{
-    --purple-rgba: rgba(138, 43, 226, 0.18); /* ม่วงใส */
-    --purple: rgba(138, 43, 226, 1);
-    --glass: rgba(255,255,255,0.06);
-    --gap: 24px;
-    --radius: 14px;
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial;
-  }
-
-  html,body{height:100%; margin:0; background:#0f1724; color:#e6eef8;}
-  .wrap{
-    min-height:100vh;
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:var(--gap);
-    padding:var(--gap);
-    box-sizing:border-box;
-    align-items:center;
-  }
-
-  /* LEFT / RIGHT panels */
-  .panel{
-    border-radius:var(--radius);
-    padding:28px;
-    position:relative;
-    overflow:hidden;
-    box-shadow: 0 6px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.03);
-    backdrop-filter: blur(6px);
-  }
-
-  .left{
-    background: linear-gradient(135deg, #10203b 0%, #1b2b4a 45%, #16304a 100%);
-  }
-
-  .right{
-    background: linear-gradient(135deg, #11121a 0%, #201533 45%, #2b0b39 100%);
-  }
-
-  /* decorative blended shapes */
-  .blobs{
-    position:absolute; inset:0; pointer-events:none;
-  }
-  .blob{
-    position:absolute;
-    filter: blur(40px) saturate(120%);
-    mix-blend-mode: screen;
-    opacity:0.7;
-  }
-  .blob.one{ width:520px; height:520px; background: radial-gradient(circle at 30% 30%, #6dd3ff, transparent 40%); left:-120px; top:-80px; transform: rotate(12deg);}
-  .blob.two{ width:420px; height:420px; background: radial-gradient(circle at 70% 70%, #b38bff, transparent 40%); right:-100px; bottom:-120px;}
-  .blob.three{ width:260px; height:260px; background: radial-gradient(circle at 50% 50%, #ffd69b, transparent 40%); left:20%; bottom:-60px; opacity:0.35;}
-
-  /* Header inside panel */
-  h1{ margin:0 0 8px 0; font-size:clamp(20px,3.4vw,30px); letter-spacing: -0.6px; color: #f7fbff;}
-  p.lead{ margin:0 0 18px 0; color:#d8e6ff88; }
-
-  /* purple translucent button */
-  .btn {
-    display:inline-block;
-    padding:10px 18px;
-    border-radius:10px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-    border: 1px solid rgba(138,43,226,0.28);
-    box-shadow: 0 6px 18px rgba(44,9,77,0.22), inset 0 1px 0 rgba(255,255,255,0.02);
-    color:var(--purple);
-    font-weight:600;
-    backdrop-filter: blur(4px);
-    cursor:pointer;
-    text-decoration:none;
-  }
-
-  /* blinking effect you asked about */
-  .blink-active {
-    display:inline-block;
-    padding:6px 10px;
-    border-radius:8px;
-    background: var(--purple-rgba);
+  body {
+    margin: 0;
+    font-family: "Prompt", sans-serif;
+    background: linear-gradient(180deg, #0b0015, #2b0048);
     color: #fff;
-    font-weight:700;
-    animation: blinkAnim 1s infinite;
-  }
-  @keyframes blinkAnim {
-    0%{ box-shadow: 0 0 0 0 rgba(138,43,226,0.22); transform: scale(1); }
-    50%{ box-shadow: 0 0 30px 10px rgba(138,43,226,0.06); transform: scale(1.02); }
-    100%{ box-shadow: 0 0 0 0 rgba(138,43,226,0.02); transform: scale(1); }
   }
 
-  /* subtle floating animation for panel content */
-  .card{
-    position:relative;
-    z-index:2;
-  }
-  .muted{ color:#cfe6ff66; font-size:0.95rem; }
-
-  /* responsive: stack on small screens */
-  @media (max-width:880px){
-    .wrap{ grid-template-columns: 1fr; padding:18px; }
-    .blob.one{ left:-220px; top:-120px; }
-    .blob.two{ right:-160px; bottom:-160px; }
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 24px;
   }
 
-  /* small utility */
-  .small { font-size:0.92rem; color:#bcd6ffaa; }
-  .list{ margin:12px 0 0 0; padding:0; list-style:none; display:flex; gap:10px; flex-wrap:wrap;}
-  .pill{ padding:6px 10px; border-radius:999px; background:var(--glass); color:#dbefff; border:1px solid rgba(255,255,255,0.03); font-size:0.85rem;}
+  .card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 0 20px rgba(120, 0, 255, 0.2);
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 12px;
+    border: 1px solid #b388ff;
+    color: #b388ff;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 6px;
+    transition: 0.3s;
+  }
+  .btn:hover {
+    background: #b388ff;
+    color: #fff;
+  }
+
+  .blink {
+    animation: blinkColor 1.2s infinite alternate;
+  }
+  @keyframes blinkColor {
+    from { background-color: rgba(179,136,255,0.3); }
+    to { background-color: rgba(179,136,255,0.8); }
+  }
+
+  .image-card {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #settingsMenu {
+    display: none;
+    margin-top: 12px;
+    background: rgba(255,255,255,0.1);
+    padding: 16px;
+    border-radius: 12px;
+  }
 </style>
 </head>
-    <script src="script.js"></script>
-  <script>
-// ทำให้ทุกองค์ประกอบที่มีคลาส .blink เปลี่ยนเฉดสีม่วงไปมาแบบเรืองแสง
-setInterval(() => {
-  const blinks = document.querySelectorAll('.blink');
-  blinks.forEach(blink => {
-    if (blink.style.color === 'rgb(179, 136, 255)') {
-      blink.style.color = '#d6b3ff'; // ม่วงอ่อน
-      blink.style.textShadow = '0 0 10px #b388ff, 0 0 20px #b388ff';
-    } else {
-      blink.style.color = '#b388ff'; // ม่วงเข้ม
-      blink.style.textShadow = '0 0 6px #b388ff, 0 0 12px #b388ff';
-    }
-  });
-}, 800);
-  <button onclick="toggleBlink()">เปิด/ปิด เอฟเฟกต์กระพริบ</button>
-
-<script>
-function toggleBlink() {
-  // เลือกทุกองค์ประกอบที่มีคลาส blink
-  document.querySelectorAll('.blink').forEach(el => {
-    el.classList.toggle('blink-active');
-  });
-}
-</script>
 <body>
-  <div class="wrap">
-    <section class="panel left">
-      <div class="blobs">
-        <div class="blob one"></div>
-        <div class="blob three"></div>
-      </div>
 
-      <div class="card">
-        <h1>ยินดีต้อนรับสู่เว็บไซต์ของคุณ</h1>
-        <p class="lead">ตัวอย่างหน้าเว็บ 2 คอลัมน์ — ด้านซ้ายเน้นข้อมูลหรือบทความ ด้านขวาเป็นภาพหรือเมนู</p>
+<div class="container">
 
-        <a class="btn" href="#start">เริ่มใช้งาน</a>
-       
-        <span style="margin-left:12px" class="blink">สดใหม่</span>
+  <div class="card">
+    <h1>ยินดีต้อนรับสู่เว็บไซต์ของคุณ</h1>
+    <p>ตัวอย่างหน้าเว็บ 2 คอลัมน์ — ด้านซ้ายเน้นข้อมูล หรือบทความ ด้านขวาเป็นภาพหรือเมนู</p>
 
-        <div style="margin-top:18px;" class="small">
-          <div>คุณสมบัติในตัวอย่างนี้:</div>
-          <ul class="list" aria-hidden="true">
-            <li class="pill">เลย์เอาต์ 2 คอลัมน์</li>
-            <li class="pill">ปุ่มม่วงโปร่ง</li>
-            <li class="pill">เอฟเฟกต์กระพริบ</li>
-            <li class="pill">สีผสมด้วย blend</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel right">
-      <div class="blobs">
-        <div class="blob two"></div>
-      </div>
-
-      <div class="card">
-        <h1 id="start">เมนู / ตัวอย่างภาพ</h1>
-        <p class="lead muted">ส่วนนี้เหมาะสำหรับวางภาพปก, แกลเลอรี่ หรือลิงก์ไปยังหน้าตอนอ่าน</p>
-        <script>
-// ทำให้ทุกองค์ประกอบที่มีคลาส .blink เปลี่ยนเฉดสีม่วงไปมาแบบเรืองแสง
-setInterval(() => {
-  const blinks = document.querySelectorAll('.blink');
-  blinks.forEach(blink => {
-    if (blink.style.color === 'rgb(179, 136, 255)') {
-      blink.style.color = '#d6b3ff'; // ม่วงอ่อน
-      blink.style.textShadow = '0 0 10px #b388ff, 0 0 20px #b388ff';
-    } else {
-      blink.style.color = '#b388ff'; // ม่วงเข้ม
-      blink.style.textShadow = '0 0 6px #b388ff, 0 0 12px #b388ff';
-    }
-  });
-}, 800);
-        </script>
-
-        <!-- ตัวอย่างการ์ดรายการ -->
-        <div style="display:grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-top:12px;">
-          <div style="padding:12px; border-radius:12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));">
-            <div style="height:120px; border-radius:8px; overflow:hidden;">
-  <img src="image/cover2.png" alt="image/cover2.png" style="width:100%; height:100%; object-fit:cover;">
-</div>
-            <div style="margin-top:8px; font-weight:700;">ตอนที่ 1</div>
-            <div class="small">คำอธิบายสั้น</div>
-          </div>
-
-          <div style="padding:12px; border-radius:12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));">
-            <div style="height:90px; border-radius:8px; background:linear-gradient(90deg,#05203a,#1b2b4a); display:flex; align-items:center; justify-content:center; font-weight:700;">COVER</div>
-            <div style="margin-top:8px; font-weight:700;">ตอนที่ 2</div>
-            <div class="small">คำอธิบายสั้น</div>
-          </div>
-        </div>
-
-        <div style="margin-top:18px;">
-          <a class="btn" href="#contact">ติดต่อ / ตั้งค่า</a>
-          <!-- เมนูตั้งค่า (Popup) -->
-<div id="settingsMenu" style="
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter: blur(6px);
-  z-index:9999;
-  align-items:center;
-  justify-content:center;
-">
-  <div style="
-    background:rgba(26,26,48,0.9);
-    border:1px solid rgba(138,43,226,0.3);
-    border-radius:14px;
-    padding:24px;
-    width:90%;
-    max-width:420px;
-    color:#fff;
-    box-shadow:0 0 30px rgba(138,43,226,0.25);
-  ">
-    <h2 style="margin-top:0; color:#b388ff;">⚙️ ตั้งค่าเว็บไซต์</h2>
-    <p style="color:#ccc;">คุณสามารถเปิด/ปิดเอฟเฟกต์ในเว็บได้ที่นี่</p>
-
-    <div style="margin-top:14px;">
-      <label>
-        <input type="checkbox" id="effectToggle" checked />
-        เปิดเอฟเฟกต์กระพริบ (.blink)
-      </label>
+    <div style="text-align:center; margin-top:16px;">
+      <a class="btn" href="#">เริ่มใช้งาน</a>
+      <a class="btn blink" id="menuBtn" href="#">เมนู</a>
     </div>
 
-    <div style="margin-top:22px; text-align:right;">
-      <button id="closeSettings" style="
-        background:var(--purple);
-        border:none;
-        color:#fff;
-        border-radius:8px;
-        padding:8px 16px;
-        cursor:pointer;
-      ">ปิด</button>
-    </div>
+    <p style="margin-top:20px;">คุณสมบัติโดดเด่น:</p>
+    <ul>
+      <li>เลย์เอาต์ 2 คอลัมน์</li>
+      <li>ปุ่มสีม่วงโปร่ง</li>
+      <li>เอฟเฟกต์กระพริบ</li>
+      <li>สีผสมด้วย blend</li>
+    </ul>
   </div>
+
+  <div class="card">
+    <h2>เมนู / ตัวอย่างภาพ</h2>
+    <p>ส่วนนี้เหมาะสำหรับภาพปก แกลเลอรี่ หรือลิงก์ไปยังหน้าตอนอ่าน</p>
+
+    <div class="image-card">
+      <img src="image/cover2.png" alt="cover">
+    </div>
+    <strong>ตอนที่ 1</strong><br>
+    <span>คำอธิบายสั้น</span>
+
+    <div style="margin-top:16px;">
+      <a class="btn" href="#">COVER</a>
+    </div>
+
+    <strong>ตอนที่ 2</strong><br>
+    <span>คำอธิบายสั้น</span>
+
+    <div style="margin-top:18px;">
+      <a class="btn" id="settingBtn" href="#contact">ติดต่อ / ตั้งค่า</a>
+    </div>
+
+    <div id="settingsMenu">
+      <label><input type="checkbox" id="effectToggle" checked> เปิดเอฟเฟกต์กระพริบ</label>
+    </div>
+
+  </div>
+
 </div>
 
 <script>
-// ===== เมนูตั้งค่า =====
-const settingsMenu = document.getElementById('settingsMenu');
-const settingsBtn = document.querySelector('a[href="#contact"]');
-const closeSettings = document.getElementById('closeSettings');
-const effectToggle = document.getElementById('effectToggle');
+const settingBtn = document.getElementById("settingBtn");
+const settingsMenu = document.getElementById("settingsMenu");
+const effectToggle = document.getElementById("effectToggle");
 
-settingsBtn.addEventListener('click', (e) => {
+settingBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  settingsMenu.style.display = 'flex';
+  settingsMenu.style.display = settingsMenu.style.display === "block" ? "none" : "block";
 });
 
-closeSettings.addEventListener('click', () => {
-  settingsMenu.style.display = 'none';
-});
-
-// ===== เปิด/ปิดเอฟเฟกต์ blink =====
-let blinkActive = true;
-effectToggle.addEventListener('change', () => {
-  blinkActive = effectToggle.checked;
+effectToggle.addEventListener("change", () => {
   document.querySelectorAll('.blink').forEach(el => {
-    el.style.textShadow = blinkActive ? '0 0 10px #b388ff' : 'none';
-    el.style.transition = 'all 0.3s ease';
+    el.style.animationPlayState = effectToggle.checked ? 'running' : 'paused';
   });
 });
-
-// ===== เอฟเฟกต์กระพริบ (คงอยู่เหมือนเดิมแต่เช็กสถานะ toggle) =====
-setInterval(() => {
-  if (!blinkActive) return;
-  const blinks = document.querySelectorAll('.blink');
-  blinks.forEach(blink => {
-    if (blink.style.color === 'rgb(179, 136, 255)') {
-      blink.style.color = '#d6b3ff';
-      blink.style.textShadow = '0 0 10px #b388ff, 0 0 20px #b388ff';
-    } else {
-      blink.style.color = '#b388ff';
-      blink.style.textShadow = '0 0 6px #b388ff, 0 0 12px #b388ff';
-    }
-  });
-}, 800);
 </script>
-          <script>
-// ทำให้ทุกองค์ประกอบที่มีคลาส .blink เปลี่ยนเฉดสีม่วงไปมาแบบเรืองแสง
-setInterval(() => {
-  const blinks = document.querySelectorAll('.blink');
-  blinks.forEach(blink => {
-    if (blink.style.color === 'rgb(179, 136, 255)') {
-      blink.style.color = '#d6b3ff'; // ม่วงอ่อน
-      blink.style.textShadow = '0 0 10px #b388ff, 0 0 20px #b388ff';
-    } else {
-      blink.style.color = '#b388ff'; // ม่วงเข้ม
-      blink.style.textShadow = '0 0 6px #b388ff, 0 0 12px #b388ff';
-    }
-  });
-}, 800);
-          </script>
-        </div>
-      </div>
-    </section>
-  </div>
-  <script>
-// ทำให้ปุ่ม .blink เปลี่ยนเฉดสีม่วงไปมาแบบเรืองแสง
-setInterval(() => {
-  const blink = document.querySelector('.blink');
-  if (blink) {
-    if (blink.style.color === 'rgb(179, 136, 255)') {
-      blink.style.color = '#d6b3ff'; // ม่วงอ่อน
-      blink.style.textShadow = '0 0 10px #b388ff, 0 0 20px #b388ff';
-    } else {
-      blink.style.color = '#b388ff'; // ม่วงเข้ม
-      blink.style.textShadow = '0 0 6px #b388ff, 0 0 12px #b388ff';
-    }
-  }
-}, 800);
-  </script>
-  <script>
-// ทำให้ทุกองค์ประกอบที่มีคลาส .blink เปลี่ยนเฉดสีม่วงไปมาแบบเรืองแสง
-setInterval(() => {
-  const blinks = document.querySelectorAll('.blink');
-  blinks.forEach(blink => {
-    if (blink.style.color === 'rgb(179, 136, 255)') {
-      blink.style.color = '#d6b3ff'; // ม่วงอ่อน
-      blink.style.textShadow = '0 0 10px #b388ff, 0 0 20px #b388ff';
-    } else {
-      blink.style.color = '#b388ff'; // ม่วงเข้ม
-      blink.style.textShadow = '0 0 6px #b388ff, 0 0 12px #b388ff';
-    }
-  });
-}, 800);
-  </script>
-  <button onclick="toggleBlink()">เปิด/ปิด เอฟเฟกต์กระพริบ</button>
 
-<script>
-function toggleBlink() {
-  document.querySelectorAll('.blink').forEach(el => {
-    el.classList.toggle('blink-active');
-  });
-}
-</script>
 </body>
 </html>
