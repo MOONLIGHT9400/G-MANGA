@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>เว็บไซต์ตัวอย่าง</title>
+
+  <!-- เรียกไฟล์ CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- เขียน CSS ภายในไฟล์ -->
+  <style>
+    body {
+      background-color: lavender; /* สีพื้นหลัง */
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      color: purple;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>ยินดีต้อนรับสู่เว็บไซต์ตัวอย่าง!</h1>
+  <p>นี่คือเนื้อหาทดลองในหน้าเว็บของคุณ</p>
+
+  <!-- เรียกไฟล์ JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
+  :root{
+    --purple-rgba: rgba(138, 43, 226, 0.18); /* ม่วงใส */
+    --purple: rgba(138, 43, 226, 1);
+    --glass: rgba(255,255,255,0.06);
+    --gap: 24px;
+    --radius: 14px;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial;
+  }
+
+  html,body{height:100%; margin:0; background:#0f1724; color:#e6eef8;}
+  .wrap{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:var(--gap);
+    padding:var(--gap);
+    box-sizing:border-box;
+    align-items:center;
+  }
+
+  /* LEFT / RIGHT panels */
+  .panel{
+    border-radius:var(--radius);
+    padding:28px;
+    position:relative;
+    overflow:hidden;
+    box-shadow: 0 6px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.03);
+    backdrop-filter: blur(6px);
+  }
+
+  .left{
+    background: linear-gradient(135deg, #10203b 0%, #1b2b4a 45%, #16304a 100%);
+  }
+
+  .right{
+    background: linear-gradient(135deg, #11121a 0%, #201533 45%, #2b0b39 100%);
+  }
+
+  /* decorative blended shapes */
+  .blobs{
+    position:absolute; inset:0; pointer-events:none;
+  }
+  .blob{
+    position:absolute;
+    filter: blur(40px) saturate(120%);
+    mix-blend-mode: screen;
+    opacity:0.7;
+  }
+  .blob.one{ width:520px; height:520px; background: radial-gradient(circle at 30% 30%, #6dd3ff, transparent 40%); left:-120px; top:-80px; transform: rotate(12deg);}
+  .blob.two{ width:420px; height:420px; background: radial-gradient(circle at 70% 70%, #b38bff, transparent 40%); right:-100px; bottom:-120px;}
+  .blob.three{ width:260px; height:260px; background: radial-gradient(circle at 50% 50%, #ffd69b, transparent 40%); left:20%; bottom:-60px; opacity:0.35;}
+
+  /* Header inside panel */
+  h1{ margin:0 0 8px 0; font-size:clamp(20px,3.4vw,30px); letter-spacing: -0.6px; color: #f7fbff;}
+  p.lead{ margin:0 0 18px 0; color:#d8e6ff88; }
+
+  /* purple translucent button */
+  .btn {
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:10px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid rgba(138,43,226,0.28);
+    box-shadow: 0 6px 18px rgba(44,9,77,0.22), inset 0 1px 0 rgba(255,255,255,0.02);
+    color:var(--purple);
+    font-weight:600;
+    backdrop-filter: blur(4px);
+    cursor:pointer;
+    text-decoration:none;
+  }
+
+  /* blinking effect you asked about */
+  .blink {
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:8px;
+    background: var(--purple-rgba);
+    color: #fff;
+    font-weight:700;
+    animation: blinkAnim 1.6s infinite;
+  }
+  @keyframes blinkAnim {
+    0%{ box-shadow: 0 0 0 0 rgba(138,43,226,0.22); transform: scale(1); }
+    50%{ box-shadow: 0 0 30px 10px rgba(138,43,226,0.06); transform: scale(1.02); }
+    100%{ box-shadow: 0 0 0 0 rgba(138,43,226,0.02); transform: scale(1); }
+  }
+
+  /* subtle floating animation for panel content */
+  .card{
+    position:relative;
+    z-index:2;
+  }
+  .muted{ color:#cfe6ff66; font-size:0.95rem; }
+
+  /* responsive: stack on small screens */
+  @media (max-width:880px){
+    .wrap{ grid-template-columns: 1fr; padding:18px; }
+    .blob.one{ left:-220px; top:-120px; }
+    .blob.two{ right:-160px; bottom:-160px; }
+  }
+
+  /* small utility */
+  .small { font-size:0.92rem; color:#bcd6ffaa; }
+  .list{ margin:12px 0 0 0; padding:0; list-style:none; display:flex; gap:10px; flex-wrap:wrap;}
+  .pill{ padding:6px 10px; border-radius:999px; background:var(--glass); color:#dbefff; border:1px solid rgba(255,255,255,0.03); font-size:0.85rem;}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="panel left">
+      <div class="blobs">
+        <div class="blob one"></div>
+        <div class="blob three"></div>
+      </div>
+
+      <div class="card">
+        <h1>ยินดีต้อนรับสู่เว็บไซต์ของคุณ</h1>
+        <p class="lead">ตัวอย่างหน้าเว็บ 2 คอลัมน์ — ด้านซ้ายเน้นข้อมูลหรือบทความ ด้านขวาเป็นภาพหรือเมนู</p>
+
+        <a class="btn" href="#start">เริ่มใช้งาน</a>
+        <span style="margin-left:12px" class="blink">สดใหม่</span>
+
+        <div style="margin-top:18px;" class="small">
+          <div>คุณสมบัติในตัวอย่างนี้:</div>
+          <ul class="list" aria-hidden="true">
+            <li class="pill">เลย์เอาต์ 2 คอลัมน์</li>
+            <li class="pill">ปุ่มม่วงโปร่ง</li>
+            <li class="pill">เอฟเฟกต์กระพริบ</li>
+            <li class="pill">สีผสมด้วย blend</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel right">
+      <div class="blobs">
+        <div class="blob two"></div>
+      </div>
+
+      <div class="card">
+        <h1 id="start">เมนู / ตัวอย่างภาพ</h1>
+        <p class="lead muted">ส่วนนี้เหมาะสำหรับวางภาพปก, แกลเลอรี่ หรือลิงก์ไปยังหน้าตอนอ่าน</p>
+
+        <!-- ตัวอย่างการ์ดรายการ -->
+        <div style="display:grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-top:12px;">
+          <div style="padding:12px; border-radius:12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));">
+            <div style="height:90px; border-radius:8px; background:linear-gradient(90deg,#130b2b,#2b0b39); display:flex; align-items:center; justify-content:center; font-weight:700;">COVER</div>
+            <div style="margin-top:8px; font-weight:700;">ตอนที่ 1</div>
+            <div class="small">คำอธิบายสั้น</div>
+          </div>
+
+          <div style="padding:12px; border-radius:12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));">
+            <div style="height:90px; border-radius:8px; background:linear-gradient(90deg,#05203a,#1b2b4a); display:flex; align-items:center; justify-content:center; font-weight:700;">COVER</div>
+            <div style="margin-top:8px; font-weight:700;">ตอนที่ 2</div>
+            <div class="small">คำอธิบายสั้น</div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;">
+          <a class="btn" href="#contact">ติดต่อ / ตั้งค่า</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
