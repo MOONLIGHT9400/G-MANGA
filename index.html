@@ -171,6 +171,20 @@
       </div>
     </section>
   </div>
-  <script src="script.js"></script>
+  <script>
+// ทำให้ปุ่ม .blink เปลี่ยนเฉดสีม่วงไปมาแบบเรืองแสง
+setInterval(() => {
+  const blink = document.querySelector('.blink');
+  if (blink) {
+    if (blink.style.color === 'rgb(179, 136, 255)') {
+      blink.style.color = '#d6b3ff'; // ม่วงอ่อน
+      blink.style.textShadow = '0 0 10px #b388ff, 0 0 20px #b388ff';
+    } else {
+      blink.style.color = '#b388ff'; // ม่วงเข้ม
+      blink.style.textShadow = '0 0 6px #b388ff, 0 0 12px #b388ff';
+    }
+  }
+}, 800);
+  </script>
 </body>
 </html>
