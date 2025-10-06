@@ -51,40 +51,58 @@
 <body>
 
   <section class="panel right">
-    <h1>ตัวอย่างแถวการ์ดเลื่อนแนวนอน</h1>
-
-    <div class="scroll-row">
-      <div class="card-item">
-        <div class="cover">COVER</div>
-        <div style="margin-top:8px; font-weight:700;">ตอนที่ 1</div>
-        <div class="small">คำอธิบายสั้น</div>
-      </div>
-
-      <div class="card-item">
-        <div class="cover" style="background:linear-gradient(90deg,#05203a,#1b2b4a);">COVER</div>
-        <div style="margin-top:8px; font-weight:700;">ตอนที่ 2</div>
-        <div class="small">คำอธิบายสั้น</div>
-      </div>
-
-      <div class="card-item">
-        <div class="cover" style="background:linear-gradient(90deg,#220b3a,#3a1b4a);">COVER</div>
-        <div style="margin-top:8px; font-weight:700;">ตอนที่ 3</div>
-        <div class="small">คำอธิบายสั้น</div>
-      </div>
-
-      <div class="card-item">
-        <div class="cover" style="background:linear-gradient(90deg,#0b2b1b,#1b4a2b);">COVER</div>
-        <div style="margin-top:8px; font-weight:700;">ตอนที่ 4</div>
-        <div class="small">คำอธิบายสั้น</div>
-      </div>
-
-      <div class="card-item">
-        <div class="cover" style="background:linear-gradient(90deg,#2b0b2b,#4a1b3a);">COVER</div>
-        <div style="margin-top:8px; font-weight:700;">ตอนที่ 5</div>
-        <div class="small">คำอธิบายสั้น</div>
-      </div>
+  <h2 style="margin: 10px 0;">📚 ตอนล่าสุด</h2>
+  <div style="
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding: 10px;
+    scroll-behavior: smooth;
+  ">
+    <div style="
+      flex: 0 0 auto;
+      width: 140px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(90,0,120,0.5), rgba(40,0,60,0.5));
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    " onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.5)';"
+      onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.3)'">
+      <div style="
+        height: 100px;
+        border-radius: 8px;
+        background: linear-gradient(90deg,#130b2b,#2b0b39);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 700;
+      ">COVER</div>
+      <div style="margin-top:8px; font-weight:700; color:#fff;">ตอนที่ 1</div>
+      <div class="small" style="color:#bbb;">คำอธิบายสั้น</div>
     </div>
-  </section>
 
-</body>
-</html>
+    <div style="
+      flex: 0 0 auto;
+      width: 140px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(0,60,120,0.5), rgba(0,30,60,0.5));
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    " onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.5)';"
+      onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.3)'">
+      <div style="
+        height: 100px;
+        border-radius: 8px;
+        background: linear-gradient(90deg,#0b2b13,#0b392b);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 700;
+      ">COVER</div>
+      <div style="margin-top:8px; font-weight:700; color:#fff;">ตอนที่ 2</div>
+      <div class="small" style="color:#bbb;">คำอธิบายสั้น</div>
+    </div>
+  </div>
+  </section>
