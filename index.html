@@ -163,6 +163,21 @@ setInterval(() => {
       <div class="card">
         <h1 id="start">เมนู / ตัวอย่างภาพ</h1>
         <p class="lead muted">ส่วนนี้เหมาะสำหรับวางภาพปก, แกลเลอรี่ หรือลิงก์ไปยังหน้าตอนอ่าน</p>
+        <script>
+// ทำให้ทุกองค์ประกอบที่มีคลาส .blink เปลี่ยนเฉดสีม่วงไปมาแบบเรืองแสง
+setInterval(() => {
+  const blinks = document.querySelectorAll('.blink');
+  blinks.forEach(blink => {
+    if (blink.style.color === 'rgb(179, 136, 255)') {
+      blink.style.color = '#d6b3ff'; // ม่วงอ่อน
+      blink.style.textShadow = '0 0 10px #b388ff, 0 0 20px #b388ff';
+    } else {
+      blink.style.color = '#b388ff'; // ม่วงเข้ม
+      blink.style.textShadow = '0 0 6px #b388ff, 0 0 12px #b388ff';
+    }
+  });
+}, 800);
+        </script>
 
         <!-- ตัวอย่างการ์ดรายการ -->
         <div style="display:grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-top:12px;">
@@ -183,6 +198,21 @@ setInterval(() => {
 
         <div style="margin-top:18px;">
           <a class="btn" href="#contact">ติดต่อ / ตั้งค่า</a>
+          <script>
+// ทำให้ทุกองค์ประกอบที่มีคลาส .blink เปลี่ยนเฉดสีม่วงไปมาแบบเรืองแสง
+setInterval(() => {
+  const blinks = document.querySelectorAll('.blink');
+  blinks.forEach(blink => {
+    if (blink.style.color === 'rgb(179, 136, 255)') {
+      blink.style.color = '#d6b3ff'; // ม่วงอ่อน
+      blink.style.textShadow = '0 0 10px #b388ff, 0 0 20px #b388ff';
+    } else {
+      blink.style.color = '#b388ff'; // ม่วงเข้ม
+      blink.style.textShadow = '0 0 6px #b388ff, 0 0 12px #b388ff';
+    }
+  });
+}, 800);
+          </script>
         </div>
       </div>
     </section>
