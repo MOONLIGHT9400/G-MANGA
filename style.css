@@ -1,42 +1,40 @@
-/* กล่องการ์ดแนวนอน */
-.scroll-cards {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  padding: 10px;
-  scroll-behavior: smooth;
-}
-
-/* ซ่อน scrollbar (เลือกได้ว่าจะเปิดหรือปิด) */
-.scroll-cards::-webkit-scrollbar {
-  display: none;
-}
-
-/* กล่องการ์ดแต่ละอัน */
-.card {
-  min-width: 120px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  text-align: center;
-  padding: 8px;
-  flex-shrink: 0;
-  transition: transform 0.2s ease;
-}
-
-/* รูปภาพ */
-.card img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-/* ชื่อเรื่อง */
-.card p {
-  font-size: 14px;
+body {
+  background-color: #1b112b;
   color: white;
-  margin-top: 5px;
+  font-family: "Prompt", sans-serif;
+  text-align: center;
+  margin: 0;
 }
 
-/* เอฟเฟกต์เวลาเอาเมาส์ชี้ */
-.card:hover {
-  transform: scale(1.05);
+header {
+  background: linear-gradient(90deg, #4b0082, #8a2be2);
+  padding: 15px;
+}
+
+button {
+  background: #a855f7;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #9333ea;
+}
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+#gallery img {
+  width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.2);
 }
