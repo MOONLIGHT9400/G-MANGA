@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>รายชื่อมังงะ | G-MANGA</title>
+  <style>
+    body { background:#0a0015; color:white; font-family:sans-serif; margin:0; }
+    header, footer { text-align:center; padding:20px; }
+    nav { text-align:center; margin-bottom:20px; }
+    nav a { color:#bb86fc; margin:0 10px; text-decoration:none; }
+    .list { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; }
+    .card {
+      width:150px;
+      background:rgba(255,255,255,0.05);
+      border-radius:10px;
+      overflow:hidden;
+      text-align:center;
+      transition:0.3s;
+    }
+    .card:hover { transform:scale(1.05); }
+    .card img { width:100%; height:200px; object-fit:cover; }
+    .card p { margin:10px 0; }
+  </style>
+</head>
+<body>
+  <header><h1>รายชื่อมังงะ</h1></header>
+  <nav>
+    <a href="index.html">หน้าแรก</a>
+    <a href="manga-list.html">รายชื่อมังงะ</a>
+    <a href="about.html">เกี่ยวกับเรา</a>
+    <a href="contact.html">ติดต่อ</a>
+  </nav>
+
+  <div class="list">
+    <a href="chapter1.html" class="card">
+      <img src="https://placehold.co/150x200?text=Manga+1">
+      <p>มังงะเรื่องที่ 1</p>
+    </a>
+    <div class="card">
+      <img src="https://placehold.co/150x200?text=Manga+2">
+      <p>มังงะเรื่องที่ 2</p>
+    </div>
+    <div class="card">
+      <img src="https://placehold.co/150x200?text=Manga+3">
+      <p>มังงะเรื่องที่ 3</p>
+    </div>
+  </div>
+
+  <footer>© 2025 G-MANGA</footer>
+</body>
+</html>
