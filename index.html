@@ -1,108 +1,116 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ทดสอบเลื่อนแนวนอน</title>
-  <style>
-    body {
-      background: linear-gradient(90deg, #1b0b2b, #0b1b2b);
-      color: white;
-      font-family: sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-    .panel.right {
-      margin-top: 20px;
-    }
-    .scroll-row {
-      display: flex;
-      overflow-x: auto;
-      gap: 12px;
-      padding: 10px;
-      scroll-behavior: smooth;
-      scrollbar-width: thin;
-    }
-    .scroll-row::-webkit-scrollbar {
-      height: 6px;
-    }
-    .scroll-row::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.3);
-      border-radius: 10px;
-    }
-    .card-item {
-      min-width: 140px;
-      flex-shrink: 0;
-      border-radius: 12px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      padding: 12px;
-    }
-    .cover {
-      height: 90px;
-      border-radius: 8px;
-      background: linear-gradient(90deg,#130b2b,#2b0b39);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manga Gallery</title>
+<style>
+body {
+  background: linear-gradient(135deg, #3a0ca3, #7209b7, #4361ee);
+  font-family: "Kanit", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+/* เมนูด้านบน */
+nav {
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  gap: 25px;
+  font-weight: bold;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+nav a:hover {
+  color: #ffb3ff;
+}
+
+/* กล่องแกลเลอรี่ */
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+}
+
+.gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.gallery-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 150px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+}
+
+.gallery-card .cover {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.gallery-card .title {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+</style>
 </head>
-  <body style="font-family:sans-serif; background: radial-gradient(circle at top left,#1a0033,#0a0015); color:#fff; margin:0;">
+<body>
 
-  <!-- ส่วนหัว -->
-  <header style="text-align:center; padding:40px 20px;">
-    <h1 style="font-size:28px; margin-bottom:8px;">G-MANGA</h1>
-    <p style="opacity:0.8;">อ่านมังงะออนไลน์ได้ทุกที่ทุกเวลา</p>
-  </header>
+<!-- เมนู -->
+<nav>
+  <a href="#">หน้าแรก</a>
+  <a href="#">รายชื่อมังงะ</a>
+  <a href="#">เกี่ยวกับเรา</a>
+  <a href="#">ติดต่อ</a>
+</nav>
 
-  <!-- ปุ่มเมนู -->
-  <nav style="text-align:center; margin-bottom:20px;">
-    <a href="#" style="color:#bb86fc; margin:0 10px; text-decoration:none;">หน้าแรก</a>
-    <a href="#" style="color:#bb86fc; margin:0 10px; text-decoration:none;">รายชื่อมังงะ</a>
-    <a href="#" style="color:#bb86fc; margin:0 10px; text-decoration:none;">เกี่ยวกับเรา</a>
-  </nav>
-
-  <!-- ส่วนแกลเลอรี 3 แถว -->
-  <div class="gallery-container">
-    <!-- แถวที่ 1 -->
-    <div class="gallery-row">
-      <div class="gallery-card"><div class="cover">COVER 1</div><div class="title">ตอนที่ 1</div></div>
-      <div class="gallery-card"><div class="cover">COVER 2</div><div class="title">ตอนที่ 2</div></div>
-      <div class="gallery-card"><div class="cover">COVER 3</div><div class="title">ตอนที่ 3</div></div>
-      <div class="gallery-card"><div class="cover">COVER 4</div><div class="title">ตอนที่ 4</div></div>
-      <div class="gallery-card"><div class="cover">COVER 5</div><div class="title">ตอนที่ 5</div></div>
+<!-- แกลเลอรี่ -->
+<div class="gallery-container">
+  <div class="gallery-row">
+    <div class="gallery-card" onclick="window.location='chapter1.html'">
+      <div class="cover" style="background-image: url('https://i.imgur.com/abcd1.jpg');"></div>
+      <div class="title">ตอนที่ 1</div>
     </div>
 
-    <!-- แถวที่ 2 -->
-    <div class="gallery-row">
-      <div class="gallery-card"><div class="cover">COVER 6</div><div class="title">ตอนที่ 6</div></div>
-      <div class="gallery-card"><div class="cover">COVER 7</div><div class="title">ตอนที่ 7</div></div>
-      <div class="gallery-card"><div class="cover">COVER 8</div><div class="title">ตอนที่ 8</div></div>
-      <div class="gallery-card"><div class="cover">COVER 9</div><div class="title">ตอนที่ 9</div></div>
-      <div class="gallery-card"><div class="cover">COVER 10</div><div class="title">ตอนที่ 10</div></div>
+    <div class="gallery-card" onclick="window.location='chapter2.html'">
+      <div class="cover" style="background-image: url('https://i.imgur.com/abcd2.jpg');"></div>
+      <div class="title">ตอนที่ 2</div>
     </div>
 
-    <!-- แถวที่ 3 -->
-    <div class="gallery-row">
-      <div class="gallery-card"><div class="cover">COVER 11</div><div class="title">ตอนที่ 11</div></div>
-      <div class="gallery-card"><div class="cover">COVER 12</div><div class="title">ตอนที่ 12</div></div>
-      <div class="gallery-card"><div class="cover">COVER 13</div><div class="title">ตอนที่ 13</div></div>
-      <div class="gallery-card"><div class="cover">COVER 14</div><div class="title">ตอนที่ 14</div></div>
-      <div class="gallery-card"><div class="cover">COVER 15</div><div class="title">ตอนที่ 15</div></div>
+    <div class="gallery-card" onclick="window.location='chapter3.html'">
+      <div class="cover" style="background-image: url('https://i.imgur.com/abcd3.jpg');"></div>
+      <div class="title">ตอนที่ 3</div>
     </div>
   </div>
+</div>
 
-  <!-- ปุ่มด้านล่าง -->
-  <div style="text-align:center; margin:30px;">
-    <a href="#" style="padding:12px 30px; border-radius:8px; background:#6a00b5; color:#fff; text-decoration:none;">ดูเพิ่มเติม</a>
-  </div>
-
-  <!-- ฟุตเตอร์ -->
-  <footer style="text-align:center; opacity:0.6; padding:20px 0; border-top:1px solid rgba(255,255,255,0.1);">
-    © 2025 G-MANGA | สร้างโดย moonlight9400
-  </footer>
-
-  </body>
-
+</body>
+</html>
   
