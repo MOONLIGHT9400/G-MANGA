@@ -1,116 +1,110 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manga Gallery</title>
-<style>
-body {
-  background: linear-gradient(135deg, #3a0ca3, #7209b7, #4361ee);
-  font-family: "Kanit", sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #fff;
-}
-
-/* เมนูด้านบน */
-nav {
-  display: flex;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 15px;
-  gap: 25px;
-  font-weight: bold;
-}
-nav a {
-  color: #fff;
-  text-decoration: none;
-  transition: 0.3s;
-}
-nav a:hover {
-  color: #ffb3ff;
-}
-
-/* กล่องแกลเลอรี่ */
-.gallery-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 30px;
-}
-
-.gallery-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
-.gallery-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 10px;
-  overflow: hidden;
-  width: 150px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
-
-.gallery-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.4);
-}
-
-.gallery-card .cover {
-  width: 100%;
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-}
-
-.gallery-card .title {
-  text-align: center;
-  padding: 10px;
-  font-weight: bold;
-  font-size: 14px;
-  color: #fff;
-  background: rgba(0,0,0,0.5);
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>G-MANGA | อ่านมังงะออนไลน์</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      transition: 0.3s;
+    }
+    :root {
+      --bg: radial-gradient(circle at top left,#1a0033,#0a0015);
+      --text: #fff;
+      --accent: #bb86fc;
+    }
+    .dark {
+      --bg: radial-gradient(circle at top left,#0a0015,#000);
+      --text: #eee;
+    }
+    header { text-align: center; padding: 40px 20px; }
+    h1 { font-size: 28px; margin: 0; }
+    nav { text-align:center; margin:20px 0; }
+    nav a {
+      color: var(--accent);
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .gallery-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 20px;
+    }
+    .gallery-row {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+    }
+    .gallery-row img {
+      width: 180px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      transition: transform 0.3s;
+    }
+    .gallery-row img:hover { transform: scale(1.05); }
+    footer {
+      text-align: center;
+      opacity: 0.6;
+      padding: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    @media (max-width: 600px) {
+      .gallery-row img { width: 130px; height: 190px; }
+    }
+  </style>
 </head>
 <body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  <header>
+    <h1>G-MANGA</h1>
+    <p style="opacity:0.8;">อ่านมังงะออนไลน์ได้ทุกที่ทุกเวลา</p>
+  </header>
 
-<!-- เมนู -->
-<nav>
-  <a href="#">หน้าแรก</a>
-  <a href="#">รายชื่อมังงะ</a>
-  <a href="#">เกี่ยวกับเรา</a>
-  <a href="#">ติดต่อ</a>
-</nav>
+  <nav>
+    <a href="index.html">หน้าแรก</a>
+    <a href="manga-list.html">รายชื่อมังงะ</a>
+    <a href="about.html">เกี่ยวกับเรา</a>
+    <a href="contact.html">ติดต่อ</a>
+  </nav>
 
-<!-- แกลเลอรี่ -->
-<div class="gallery-container">
-  <div class="gallery-row">
-    <div class="gallery-card" onclick="window.location='chapter1.html'">
-      <div class="cover" style="background-image: url('https://i.imgur.com/abcd1.jpg');"></div>
-      <div class="title">ตอนที่ 1</div>
-    </div>
-
-    <div class="gallery-card" onclick="window.location='chapter2.html'">
-      <div class="cover" style="background-image: url('https://i.imgur.com/abcd2.jpg');"></div>
-      <div class="title">ตอนที่ 2</div>
-    </div>
-
-    <div class="gallery-card" onclick="window.location='chapter3.html'">
-      <div class="cover" style="background-image: url('https://i.imgur.com/abcd3.jpg');"></div>
-      <div class="title">ตอนที่ 3</div>
+  <div class="gallery-container">
+    <div class="gallery-row">
+      <a href="chapter1.html"><img src="https://placehold.co/180x250?text=ตอน+1"></a>
+      <img src="https://placehold.co/180x250?text=ตอน+2">
+      <img src="https://placehold.co/180x250?text=ตอน+3">
+      <img src="https://placehold.co/180x250?text=ตอน+4">
+      <img src="https://placehold.co/180x250?text=ตอน+5">
     </div>
   </div>
-</div>
 
+  <footer>© 2025 G-MANGA | สร้างโดย moonlight9400</footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
 </body>
 </html>
-  
